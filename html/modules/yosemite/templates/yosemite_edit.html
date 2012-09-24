@@ -1,0 +1,14 @@
+<{if $errorMessage}>
+<div class="alert">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	<{foreach from=$errorMessage item=em}>
+		<{$em}>
+	<{/foreach}>
+</div>
+<{/if}>
+<form method="POST" action="edit">
+	<{xoops_token form=$actionForm}>
+	<input type="text" name="title" value="<{$actionForm->get('title')}>">
+	<textarea name="desc" rows="4" cols="40"><{$actionForm->get('desc')}></textarea>
+	<input type="submit" class="btn btn-primary btn-large" value="Submit">
+</form>
