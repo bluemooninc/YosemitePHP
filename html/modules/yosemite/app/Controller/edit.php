@@ -20,7 +20,7 @@ class Controller_Edit extends AbstractAction
 	public function action_index()
 	{
 		$testHandler =& xoops_getmodulehandler('test');         // Generate Model instance
-		$this->actionForm = new Yosemite_EditForm();                 // Generate Form instance
+		$this->actionForm = Form_Yosemite::forge();             // Generate Form instance
 		$uid = $this->root->mContext->mXoopsUser->uid();        // Get User ID
 		$this->testObject = $testHandler->getTest( $uid );      // Get User data or Make recored
 		$this->actionForm->load($this->testObject);             // Record to Form structure

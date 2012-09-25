@@ -6,8 +6,9 @@
 	<{/foreach}>
 </div>
 <{/if}>
+<{xoops_token form=$actionForm}>
+
 <form method="POST" action="edit">
-	<{xoops_token form=$actionForm}>
 	<input type="text" name="title" value="<{$actionForm->get('title')}>">
 	<textarea name="desc" rows="4" cols="40"><{$actionForm->get('desc')}></textarea>
 	<input type="submit" class="btn btn-primary btn-large" value="Submit">

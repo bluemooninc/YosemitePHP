@@ -10,7 +10,7 @@
 require_once XOOPS_ROOT_PATH . "/core/XCube_ActionForm.class.php";
 // Validation parent class
 require_once XOOPS_MODULE_PATH . "/legacy/class/Legacy_Validator.class.php";
-class Yosemite_EditForm extends XCube_ActionForm
+class Form_Yosemite extends XCube_ActionForm
 {
 	public function __construct()
 	{
@@ -18,13 +18,21 @@ class Yosemite_EditForm extends XCube_ActionForm
 		$this->prepare(); // Create Form objects
 	}
 
+	public function &forge()
+	{
+		static $instance;
+		if (!isset($instance)) {
+			$instance = new Form_Yosemite();
+		}
+		return $instance;
+	}
 	public function getTokenName()
 	{
 		return 'module.yosemite.EditForm.TOKEN';
 	}
-
 	public function prepare()
 	{
+
 		// Set field data type
 		$this->mFormProperties['uid'] = new XCube_IntProperty('uid');
 		$this->mFormProperties['title'] = new XCube_StringProperty('title');
